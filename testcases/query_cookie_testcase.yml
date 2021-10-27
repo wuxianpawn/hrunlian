@@ -1,0 +1,19 @@
+
+config:
+    name: "query testcase"
+
+
+# cookie 可以进行自动关联 ，意思是不需要提取和赋值这个步骤
+teststeps:
+-
+    name: 调用登录接口
+    # 调用最小api的请求的接口
+    api: api/login_cookie_api.yml
+
+    extract:
+        - b: content.data
+    validate:
+        - eq: ["status_code", 200]
+-
+    name: 调用查询余额接口
+    api: api/query_cookie_api.yml

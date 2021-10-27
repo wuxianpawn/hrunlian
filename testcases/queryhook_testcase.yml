@@ -1,0 +1,34 @@
+
+config:
+    name: "query testcase"
+    setup_hooks:
+        - ${hook_up()}
+    teardown_hooks:
+        - ${hook_down()}
+
+
+
+teststeps:
+-
+    name: 调用登录接口
+    api: api/login_token_api.yml
+    variables:
+        user_agent: 'iOS/10.3'
+        device_sn: $device_sn
+    extract:
+        - b: content.data
+    validate:
+        - eq: ["status_code", 200]
+    setup_hooks:
+        - ${hook_log(-----测试1用例开始执行------)}
+    teardown_hooks:
+        - ${hook_log(-----测试1结束执行-----)}
+-
+    name: 调用查询余额接口
+    api: api/query_token_api.yml
+    variables:
+        token: $b
+    setup_hooks:
+        - ${hook_log(-----测试2开始执行------)}
+    teardown_hooks:
+        - ${hook_log(-----测试2结束执行-----)}
