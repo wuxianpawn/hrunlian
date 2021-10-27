@@ -1,0 +1,30 @@
+
+config:
+    name: "login testsuite"
+
+# 该文件最主要是做参数化  做参数化的关键字为：parameters
+testcases:
+-
+    name: 在当前yml脚本里面进行参数化
+    testcase: testcases/loginparameters_testcase.yml
+    # 第一种参数化方法
+#    parameters:
+#        # 在yml文件中哪几个地方用到
+#        title-uesrname-password-message:   #  参数化很少时使用
+#            - [正常登录,admin,1234,success]
+#            - [密码为空,admin,'',参数为空]
+#            - [用户名为空,'',1234,参数为空]
+#            - [用户名和密码为空,'','',参数为空]
+
+    # 第二种参数化方法,读取csv文件
+#    parameters:
+#        title-uesrname-password-message: ${P(data/data.csv)}
+
+    # 第三种参数化方法
+#    parameters:
+#        title-uesrname-password-message: ${get_params()}
+
+    # 笛卡尔积效应，多个账号一个密码参数化
+    parameters:
+        username: ['test1', 'test2', 'test3']
+        password: [1234]

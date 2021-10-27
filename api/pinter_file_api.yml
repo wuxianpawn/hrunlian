@@ -1,0 +1,15 @@
+
+name: post 请求-文件上传
+base_url: http://localhost:8080/
+variables:
+    sku_id: 1
+
+request:
+    url: pinter/file/api/upload
+    method: POST
+    # 上传文件的接口请求参数关键字upload
+    upload:
+        file: "api/demo_api.yml"
+validate:
+    - eq: ["status_code", 200]
+    - is: [content,上传成功]

@@ -1,0 +1,13 @@
+
+name: cookie关联-查询余额接口
+base_url: http://localhost:8080/
+
+request:
+    url: pinter/bank/api/query?userName=yaoyao
+    method: GET
+    headers:
+        # 解决的问题：获取testfan-token所对应的值  1、py文件中提取  2、通过testcase-teststep提取
+        testfan-token: $token   #  为第二种方法
+validate:
+    - eq: ["status_code", 200]     # '-' 表示列表
+   

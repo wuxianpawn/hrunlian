@@ -1,0 +1,14 @@
+
+name: post 请求
+base_url: http://localhost:8080/
+variables:
+    sku_id: 1
+
+request:
+    url: pinter/com/login
+    method: POST
+    data:
+        userName: yaoyao
+        password: yaoyao
+validate:
+    - eq: ["status_code", 200]     # '-' 表示列表

@@ -1,0 +1,13 @@
+
+name: buy接口
+base_url: http://localhost:8080/
+variables:
+    sku_id: 1
+    expect_
+request:
+    url: pinter/com/buy
+    method: POST
+    data: param: {"skuId": 123, "num": 10}
+validate:
+    - eq: ["status_code", 200]     # '-' 表示列表
+   

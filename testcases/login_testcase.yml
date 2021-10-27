@@ -1,0 +1,13 @@
+
+config:
+    name: "login testcase"
+
+
+teststeps:
+-
+    name: 登录接口发起请求
+    api: api/login_token_api.yml
+
+    validate:
+        - eq: [conten.message, success]
+

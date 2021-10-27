@@ -1,0 +1,9 @@
+
+name: 地图元素，如何获取列表中的元素
+
+request:
+    url: https://ditu.amap.com/service/regeo?longitude=121.04925573429551&latitude=31.315590522490712
+    method: GET
+
+validate:
+    - eq: [content.data.cross_list.0.distance, '192.113']

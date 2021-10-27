@@ -1,0 +1,13 @@
+
+name: post 请求-请求参数为json
+base_url: http://localhost:8080/
+variables:
+    sku_id: 1
+
+request:
+    url: pinter/com/register
+    method: POST
+    json: {"userName":"test","password":"1234","gender":1,"phoneNum":"110","email":"beihe@163.com","address":"Beijing"}
+validate:
+    - eq: ["status_code", 200]     # '-' 表示列表
+   

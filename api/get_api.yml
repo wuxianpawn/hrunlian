@@ -1,0 +1,16 @@
+
+name: get 请求
+base_url: http://localhost:8080/
+variables:
+    sku_id: 1
+
+request:
+    url: pinter/com/getSku
+    method: GET
+    params:
+        id: $sku_id   # 变量的引用，用  $ + 变量
+validate:
+    - eq: ["status_code", 200]     # '-' 表示列表
+    - contains: [content.data.brand, test]
+    - ==: [content.message, success]    # 响应的内容用content 作为关键字
+    - {"check": content.data.brand, "expect": testfan, "comparator": "eq"}

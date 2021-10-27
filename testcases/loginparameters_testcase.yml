@@ -1,0 +1,16 @@
+
+config:
+    name: $title
+    variables:
+        title: 笛卡尔积参数化
+
+
+teststeps:
+-
+    name: 登录接口发起请求
+    api: api/login_token_api.yml
+
+#    validate:                               #   删除   1、需要参数化的地方进行变量引用就可以了
+#                                                       2、对相同字段进行断言，testcase里面的会覆盖掉api里面的
+#        - eq: [conten.message, success]
+

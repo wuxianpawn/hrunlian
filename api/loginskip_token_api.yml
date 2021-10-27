@@ -1,0 +1,21 @@
+
+name: token关联-登录接口
+base_url: ${ENV(BASE_URL)}
+# 参数化为了对登录接口进行测试, 如不参数化，也需要对登录接口进行正常访问，所以需要一个默认值
+variables:
+    username: ${ENV(USERNAME)}
+    password: ${ENV(PASSWORD)}
+    message: success
+skip: 这个没有实现，暂时跳过
+
+request:
+    url: pinter/bank/api/login2
+    method: POST
+    data:
+        userName: $username
+        password: $password
+        message: $message
+#validate:
+#    - eq: ["status_code", 200]
+#    - eq: [content.message, message]
+#

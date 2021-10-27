@@ -1,0 +1,21 @@
+
+config:
+    name: "query testcase"
+
+
+teststeps:
+-
+    name: 调用登录接口
+    api: api/login_token_api.yml
+    variables:
+        user_agent: 'iOS/10.3'
+        device_sn: $device_sn
+    extract:
+        - b: content.data
+    validate:
+        - eq: ["status_code", 200]
+-
+    name: 调用查询余额接口
+    api: api/query_token_api.yml
+    variables:
+        token: $b
